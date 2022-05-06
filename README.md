@@ -6,13 +6,13 @@ Invite the bot [here](https://discord.com/api/oauth2/authorize?client_id=9714614
 ## Commands:
 ### Interaction Commands:
 | Command  | Description |
-| ------------- | ------------- |
+| --- | --- |
 | /comic  | Sends a random Garfield Comic  |
 | /ping  | Displays latency  |
 
 ### Prefix Commands:
 | Command  | Description |
-| ------------- | ------------- |
+| --- | --- |
 | g!comic  | Sends a random Garfield Comic  |
 | g!ping  | Displays latency  |
 | g!credits | Shows bot credits |
