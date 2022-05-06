@@ -1,7 +1,7 @@
 # Gar-Bot
 Gar-Bot is a Discord bot developed for sending Garfield comics in servers.
 
-Invite the bot <a href="https://discord.com/api/oauth2/authorize?client_id=971461458854572062&permissions=139586825280&scope=bot%20applications.commands" target="_blank" rel="noopener">here</a>
+Invite the bot [here](https://discord.com/api/oauth2/authorize?client_id=971461458854572062&permissions=139586825280&scope=bot%20applications.commands)
   
 ## Commands:
 ### Interaction Commands:
