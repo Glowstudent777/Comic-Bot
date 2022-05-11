@@ -5,3 +5,5 @@ dev/
 events/devCommandHandler.js
 deploy-commands.js
 deploy-commands-global.js
+dev/guild.js
+dev/autopost.js

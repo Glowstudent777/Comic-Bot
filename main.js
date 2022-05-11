@@ -7,7 +7,20 @@ const dotenv = require('dotenv');
 require('dotenv').config();
 
 // Intents
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS] });
+const client = new Client({
+	intents: [
+		Intents.FLAGS.GUILDS,
+		Intents.FLAGS.GUILD_MEMBERS,
+		Intents.FLAGS.GUILD_MESSAGES,
+		Intents.FLAGS.GUILD_PRESENCES,
+		Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS,
+		Intents.FLAGS.GUILD_INTEGRATIONS,
+		Intents.FLAGS.GUILD_WEBHOOKS,
+		Intents.FLAGS.GUILD_INVITES,
+		Intents.FLAGS.GUILD_VOICE_STATES,
+	],
+});
+
 client.client = client;
 
 // // Collections
@@ -16,22 +29,22 @@ client.pcommands = new Collection();
 client.devCommands = new Collection();
 
 // Load all interaction commands
-const commandFolders = fs.readdirSync('./commands/interaction')
+const commandFolders = fs.readdirSync('./commands/interaction');
 for (const folder of commandFolders) {
 	const commandFiles = fs.readdirSync(`./commands/interaction/${folder}`).filter(file => file.endsWith('.js'));
 	for (const file of commandFiles) {
 		const command = require(`./commands/interaction/${folder}/${file}`);
-		client.commands.set(command.data.name, command)
+		client.commands.set(command.data.name, command);
 	}
 }
 
 // Load all prefix commands
-const pcommandFolders = fs.readdirSync('./commands/prefix')
+const pcommandFolders = fs.readdirSync('./commands/prefix');
 for (const folder of pcommandFolders) {
 	const pcommandFiles = fs.readdirSync(`./commands/prefix/${folder}`).filter(file => file.endsWith('.js'));
 	for (const file of pcommandFiles) {
 		const pcommand = require(`./commands/prefix/${folder}/${file}`);
-		client.pcommands.set(pcommand.name, pcommand)
+		client.pcommands.set(pcommand.name, pcommand);
 	}
 }
 
@@ -48,10 +61,27 @@ for (const file of eventFiles) {
 	const event = require(`./events/${file}`);
 	if (event.once) {
 		client.once(event.name, (...args) => event.execute(client, ...args));
-	} else {
+	}
+	else {
 		client.on(event.name, (...args) => event.execute(client, ...args));
 	}
 }
+
+const Sentry = require("@sentry/node");
+const Tracing = require("@sentry/tracing");
+
+Sentry.init({
+	dsn: "https://5c2f100f28db43aea5d7e11d41c55223@o1186944.ingest.sentry.io/6316176",
+	tracesSampleRate: 1.0,
+});
+
+const transaction = Sentry.startTransaction({
+	op: "Starting bot",
+	name: "Bot",
+	description: "Starting bot",
+});
+
+transaction.finish();
 
 // error handling
 client.on('shardError', error => {

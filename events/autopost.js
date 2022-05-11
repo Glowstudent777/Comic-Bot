@@ -65,7 +65,7 @@ module.exports = {
             });
 
             let footerDate;
-            footerDate = moment(cdate).subtract(1, 'months').format('YYYY-MM-DD');
+            footerDate = moment(cdate, 'YYYY-M-D').subtract(1, 'months').format('YYYY-MM-DD');
             footerDate = cdate.split('-').join('/');
 
             const comicEmbed = new MessageEmbed()
@@ -99,7 +99,7 @@ module.exports = {
         }
 
         // Get comic every day at 12pm CST
-        let postTime = moment('22:38:30', 'HH:mm:ss').utcOffset('-06:00');
+        let postTime = moment('12:06:00', 'HH:mm:ss').utcOffset('-06:00');
 
         setInterval(() => {
             if (moment().diff(postTime, 'seconds') === 0) {

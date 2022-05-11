@@ -12,5 +12,5 @@ module.exports = {
 
         // Activity
         client.user.setActivity(`Lasagna Eating Contest`, { type: 'COMPETING' });
-    }
+    },
 };

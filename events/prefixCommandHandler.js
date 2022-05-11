@@ -15,8 +15,9 @@ module.exports = {
 
         try {
             command.execute(message, args, client);
-        } catch (error) {
+        }
+        catch (error) {
             // ...
         }
-    }
-}
+    },
+};

@@ -6,7 +6,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('ping')
         .setDescription('Displays latency and API ping'),
-    async execute(interaction, member, client) {
+    async execute(client, interaction) {
         const ping = new MessageEmbed()
             .setColor("ORANGE")
             .setTitle('Pong!')

@@ -18,7 +18,8 @@ module.exports = {
         function checkDate(x) {
             if (date.isValid(x, 'YYYY-M-D')) {
                 return true;
-            } else {
+            }
+            else {
                 return false;
             }
         }
@@ -54,12 +55,12 @@ module.exports = {
                 return getComic();
             }
 
-            let comic = await getImage({
+            const comic = await getImage({
                 comicName: "garfield",
                 comicNumber: Math.floor(Math.random() * 100),
                 comicFormat: "png",
                 // URLOnly: true,
-                date: [cdate]
+                date: [cdate],
             }).catch(err => {
                 console.log("Error, comic not found. Retrying...");
                 return getComic();
