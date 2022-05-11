@@ -1,21 +1,26 @@
-# Truth or Dare
-Simple Truth or Dare Discord bot.
+# Gar-Bot
+Gar-Bot is a Discord bot developed for sending Garfield comics in servers.
 
-Customize the truths and dares in the [`truth.json`](https://github.com/Glowstudent777/TruthorDare/blob/main/config/truth.json) and [`dare.json`](https://github.com/Glowstudent777/TruthorDare/blob/main/config/dare.json) files.
+Invite the bot [here](https://discord.com/api/oauth2/authorize?client_id=971461458854572062&permissions=139586825280&scope=bot%20applications.commands)
+  
+## Commands:
+### Interaction Commands:
+| Command  | Description |
+| --- | --- |
+| /comic  | Sends a random Garfield Comic  |
+| /ping  | Displays latency  |
 
-### 💻 &nbsp;Configuration :
+### Prefix Commands:
+| Command  | Description |
+| --- | --- |
+| g!comic  | Sends a random Garfield Comic  |
+| g!ping  | Displays latency  |
+| g!credits | Shows bot credits |
+| g!checkperms | Check if the bot has the correct permissions |
 
-Add or edit the truths and dares in the `json` files.
+## Features:
+### Autoposting: 
+Gar-Bot will post the daily comic in a specified channel around 12pm CST everyday.
 
-Truths and Dares should look like this:
-```json
-{
-    "ID": "PG-22",
-    "Dare": "Make up a country song of the top of your head"
-},
-```
-
----
-
-### 📜 &nbsp;License :
-[![wtfpl](http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-1.png)](http://www.wtfpl.net/about)
+### Endless Garfield Comics:
+Using the `/comic` or `g!comic` command will send a random Garfield comic. The comics may be as old as 1978!
