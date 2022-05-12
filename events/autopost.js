@@ -20,7 +20,8 @@ module.exports = {
         function checkDate(x) {
             if (date.isValid(x, 'YYYY-M-D')) {
                 return true;
-            } else {
+            }
+            else {
                 return false;
             }
         }
@@ -53,12 +54,12 @@ module.exports = {
                 return getComic();
             }
 
-            let comic = await getImage({
+            const comic = await getImage({
                 comicName: "garfield",
                 comicNumber: Math.floor(Math.random() * 100),
                 comicFormat: "png",
                 // URLOnly: true,
-                date: [cdate]
+                date: [cdate],
             }).catch(err => {
                 console.log("Error, comic not found. Retrying...");
                 return getComic();
@@ -79,18 +80,18 @@ module.exports = {
             for (let i = 0; i < autopost.channels.length; i++) {
                 client.guilds.cache.forEach(guild => {
                     guild.channels.cache.forEach(channel => {
-                        if (channel.id === autopost.channels.map(channel => channel.id)[i]) {
+                        if (channel.id === autopost.channels.map(achannel => achannel.id)[i]) {
 
                             // if id is empty, don't post
-                            if (autopost.channels.map(channel => channel.id)[i] === "") return console.log("No channel set for autoposting.");
+                            if (autopost.channels.map(achannel => achannel.id)[i] === "") return console.log("No channel set for autoposting.");
 
                             let ping;
-                            ping = autopost.channels.map(channel => channel.ping)[i];
+                            ping = autopost.channels.map(achannel => achannel.ping)[i];
                             if (ping === undefined || ping === null || ping === "") ping = "";
 
                             if (!channel.permissionsFor(client.user).has('SEND_MESSAGES')) return console.log(`I don't have permission to send messages in ${channel.name}`);
 
-                            if (ping === "") return channel.send({ embeds: [comicEmbed] })
+                            if (ping === "") return channel.send({ embeds: [comicEmbed] });
                             else return channel.send({ content: `<@&${ping}>`, embeds: [comicEmbed] });
                         }
                     });
@@ -107,7 +108,8 @@ module.exports = {
                 getComic();
                 postTime = postTime.add(1, 'days');
                 return console.log("Comic sent.");
-            } else {
+            }
+            else {
                 // ...
             }
         }, 100);
@@ -117,7 +119,7 @@ module.exports = {
 
             let timeTillPost = postTime.diff(moment());
             if (timeTillPost < 0) timeTillPost = postTime.add(1, 'days').diff(moment());
-            let timeTillPostFormatted = moment.duration(timeTillPost).format("h [hours], m [minutes], s [seconds]");
+            const timeTillPostFormatted = moment.duration(timeTillPost).format("h [hours], m [minutes], s [seconds]");
 
             console.log(`Not time to post yet. Posting in: ${timeTillPostFormatted}`);
 

@@ -1,10 +1,8 @@
-const fs = require('fs');
 const { Client, Collection, Intents } = require('discord.js');
 const dotenv = require('dotenv');
-require('dotenv').config();
 
 module.exports = {
-    name: 'interactionCreate',
+    name: 'interactionCreate', // Name of the event
     async execute(client, interaction) {
 
         const command = client.commands.get(interaction.commandName);
@@ -12,9 +10,9 @@ module.exports = {
 
         console.log(`[${interaction.commandName}] ${interaction.user.tag} (${interaction.user.id})`);
 
+        // execute commands
         try {
-            await command.execute(client, interaction);
-            // await command.execute(interaction, client);
+            await command.execute(interaction, client);
         }
         catch (error) {
             console.error(error);

@@ -38,7 +38,8 @@ module.exports = {
             for (let i = 0; i < 3; i++) {
                 if (checkDate(cdate) === false) {
                     console.log("Error, comic not found. Retrying...");
-                    return getComic();
+                    getComic();
+                    break;
                 }
             }
 
@@ -46,7 +47,8 @@ module.exports = {
             for (let i = 0; i < 3; i++) {
                 if (checkDate(cdate) === false) {
                     console.log("Error, comic not found. Retrying...");
-                    return getComic();
+                    getComic();
+                    break;
                 }
             }
 
@@ -76,7 +78,10 @@ module.exports = {
                 .setImage(comic.uri.href)
                 .setFooter({ text: `Comic from: ${footerDate}` })
                 .setTimestamp();
-            return await message.channel.send({ embeds: [comicEmbed] });
+            return await message.channel.send({ embeds: [comicEmbed] }).catch(err => {
+                console.log("Error, comic not found. Retrying...");
+                return getComic();
+            });
         }
 
         getComic();

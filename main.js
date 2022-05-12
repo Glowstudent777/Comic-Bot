@@ -18,7 +18,9 @@ const client = new Client({
 		Intents.FLAGS.GUILD_WEBHOOKS,
 		Intents.FLAGS.GUILD_INVITES,
 		Intents.FLAGS.GUILD_VOICE_STATES,
+		Intents.FLAGS.GUILD_INTEGRATIONS,
 	],
+	partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
 });
 
 client.client = client;
@@ -62,7 +64,7 @@ for (const file of eventFiles) {
 	if (event.once) {
 		client.once(event.name, (...args) => event.execute(client, ...args));
 	}
-	else {
+ else {
 		client.on(event.name, (...args) => event.execute(client, ...args));
 	}
 }

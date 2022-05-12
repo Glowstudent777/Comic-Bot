@@ -15,7 +15,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('comic')
         .setDescription('Sends a comic!'),
-    execute(client, interaction) {
+    execute(interaction, client) {
 
         return getComic.getComic(client, interaction);
     },
