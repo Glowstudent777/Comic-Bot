@@ -28,13 +28,6 @@ module.exports = {
         //     }
         // }
 
-        const format = 'YYYY-M-D';
-        // for (let i = 0; i < 3; i++) {
-        //     if (checkDate.checkDate(cdate, format) === false) {
-        //         return message.channel.send("Error, comic not found.");
-        //     }
-        // }
-
         if (!date.isValid(cdate, 'YYYY-M-D')) {
             return message.channel.send("Error, comic not found.");
         }
@@ -50,7 +43,7 @@ module.exports = {
 
         let footerDate;
         footerDate = moment(cdate, 'YYYY-M-D').subtract(1, 'months').format('YYYY-MM-DD');
-        footerDate = cdate.split('-').join('/');
+        footerDate = footerDate.split('-').join('/');
 
         const comicEmbed = new MessageEmbed()
             .setColor('#50C878')

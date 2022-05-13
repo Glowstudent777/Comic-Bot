@@ -100,7 +100,7 @@ module.exports = {
         }
 
         // Get comic every day at 12pm CST
-        let postTime = moment('12:06:00', 'HH:mm:ss').utcOffset('-06:00');
+        let postTime = moment('12:00:00', 'HH:mm:ss').utcOffset('-06:00');
 
         setInterval(() => {
             if (moment().diff(postTime, 'seconds') === 0) {
