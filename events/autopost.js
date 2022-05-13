@@ -100,7 +100,7 @@ module.exports = {
         }
 
         // Get comic every day at 12pm CST
-        let postTime = moment('12:00:00', 'HH:mm:ss').utcOffset('-06:00');
+        let postTime = moment('12:00:00', 'HH:mm:ss').utcOffset('-05:00');
 
         setInterval(() => {
             if (moment().diff(postTime, 'seconds') === 0) {
@@ -121,7 +121,7 @@ module.exports = {
             if (timeTillPost < 0) timeTillPost = postTime.add(1, 'days').diff(moment());
             const timeTillPostFormatted = moment.duration(timeTillPost).format("h [hours], m [minutes], s [seconds]");
 
-            console.log(`Not time to post yet. Posting in: ${timeTillPostFormatted}`);
+            console.log(`Not time to post yet. Posting in: ${timeTillPostFormatted} (${postTime.format('HH:mm:ss')})`);
 
         }, 5000);
 
