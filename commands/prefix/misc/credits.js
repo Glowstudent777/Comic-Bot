@@ -1,5 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const moment = require('moment');
+const colors = require('../../../config/config.json');
 
 module.exports = {
     name: 'credits',
@@ -8,7 +9,7 @@ module.exports = {
     async execute(message, args, client) {
 
         const credits = new MessageEmbed()
-            .setColor('#50C878')
+            .setColor(colors.colors.main)
             .setTitle('**Credits**')
             .setAuthor({ iconURL: client.user.avatarURL(), name: client.user.username })
             .setDescription("For support join the Discord server [here](https://discord.gg/4wM63P7ZUd)")

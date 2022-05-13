@@ -1,36 +1,34 @@
-const channels = require('../config/autopost.json');
-const { prefix } = require('../config/config.json');
+const fs = require('fs');
 const { MessageEmbed } = require('discord.js');
 const { getImage } = require("gocomics-api");
 var moment = require("moment");
 var momentDurationFormatSetup = require("moment-duration-format");
 const date = require('date-and-time');
-const { checkDate } = require('./checkDate.js');
+const checkDate = require('./checkDate');
 const colors = require('../config/config.json');
 
 module.exports = {
-    async getComic(sendChannel, ping, message, client) {
-        let cdate;
 
-        cdate = moment().format('YYYY-MM-DD');
+    async getComic(client, interaction) {
+
+        let cdate;
+        cdate = moment().subtract(Math.floor(Math.random() * (moment().diff(moment('1978-06-19', 'YYYY-MM-DD')) / 86400000)), 'days').format('YYYY-MM-DD');
         cdate = moment(cdate).add(1, 'months').format('YYYY-MM-DD');
         cdate = date.transform(cdate, 'YYYY-MM-DD', 'YYYY-M-D');
-
-        // Month replacement
-        if (cdate.split('-')[1] === '0') cdate = cdate.split('-')[0] + '-2-' + cdate.split('-')[2];
-        if (cdate.split('-')[1] === '1') cdate = cdate.split('-')[0] + '-2-' + cdate.split('-')[2];
-
         console.log(`Is valid: ${date.isValid(cdate, 'YYYY-M-D')}`);
 
-        // Check if date is valid before trying to get comic
-        // for (let i = 0; i < 3; i++) {
-        //     if (checkDate.checkDate(cdate) === false) {
-        //         return message.channel.send("Error, comic not found.");
-        //     }
-        // }
+        // Check if date is valid before trying to get comic x3
+        const format = 'YYYY-M-D';
+        for (let i = 0; i < 3; i++) {
+            if (checkDate.checkDate(cdate, format) === false) {
+                console.log("Error, comic not found. Retrying...");
+                return this.getComic();
+            }
+        }
 
         if (!date.isValid(cdate, 'YYYY-M-D')) {
-            return message.channel.send("Error, comic not found.");
+            console.log("Error, comic not found. Retrying...");
+            return this.getComic();
         }
 
         const comic = await getImage({
@@ -39,7 +37,8 @@ module.exports = {
             comicFormat: "png",
             date: [cdate],
         }).catch(err => {
-            return message.channel.send("Error, comic not found.");
+            console.log("Error, comic not found. Retrying...");
+            return this.getComic();
         });
 
         let footerDate;
@@ -48,18 +47,10 @@ module.exports = {
 
         const comicEmbed = new MessageEmbed()
             .setColor(colors.colors.main)
-            .setTitle(`Today's Garfield Comic!`)
+            .setTitle(`Garfield Comic!`)
             .setImage(comic.uri.href)
             .setFooter({ text: `Comic from: ${footerDate}` })
             .setTimestamp();
-
-
-        if (ping !== "") {
-            sendChannel.send({ content: `<@&${ping}>`, embeds: [comicEmbed] });
-        }
-        else {
-            sendChannel.send({ embeds: [comicEmbed] });
-        }
-
+        interaction.reply({ embeds: [comicEmbed] });
     },
 };

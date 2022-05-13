@@ -1,4 +1,5 @@
 const { MessageEmbed } = require('discord.js');
+const colors = require('../../../config/config.json');
 
 module.exports = {
 	name: 'checkperms',
@@ -6,12 +7,8 @@ module.exports = {
 
 	async execute(message) {
 
-		let color;
-		color = message.member.displayHexColor;
-		if (message.member.displayHexColor === '#000000') color = '#ffffff';
-
 		const perms = new MessageEmbed()
-			.setColor(color)
+			.setColor(colors.colors.main)
 			.setDescription(`🔒 I have the following permissions: \n
             ${('[Manage Messages] ')}${(message.guild.me.permissions.has('MANAGE_MESSAGES') ? '✅' : '❌')}
             ${('[Send Messages] ')}${(message.guild.me.permissions.has('SEND_MESSAGES') ? '✅' : '❌')}

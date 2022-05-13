@@ -5,10 +5,11 @@ var moment = require("moment");
 var momentDurationFormatSetup = require("moment-duration-format");
 const date = require('date-and-time');
 const checkDate = require('./checkDate');
+const colors = require('../config/config.json');
 
 module.exports = {
 
-    async getComic(client, interaction) {
+    async getComic(client, message) {
 
         let cdate;
         cdate = moment().subtract(Math.floor(Math.random() * (moment().diff(moment('1978-06-19', 'YYYY-MM-DD')) / 86400000)), 'days').format('YYYY-MM-DD');
@@ -45,11 +46,11 @@ module.exports = {
         footerDate = footerDate.split('-').join('/');
 
         const comicEmbed = new MessageEmbed()
-            .setColor('#50C878')
+            .setColor(colors.colors.main)
             .setTitle(`Garfield Comic!`)
             .setImage(comic.uri.href)
             .setFooter({ text: `Comic from: ${footerDate}` })
             .setTimestamp();
-        interaction.reply({ embeds: [comicEmbed] });
+        message.reply({ embeds: [comicEmbed] });
     },
 };

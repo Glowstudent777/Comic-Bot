@@ -9,14 +9,13 @@ const { getImage } = require("gocomics-api");
 var moment = require("moment");
 var momentDurationFormatSetup = require("moment-duration-format");
 const date = require('date-and-time');
-const getComic = require('../../../functions/getComic');
+const getComic = require('../../../functions/getComicInteraction');
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('comic')
         .setDescription('Sends a comic!'),
     execute(interaction, client) {
-
         return getComic.getComic(client, interaction);
     },
 };

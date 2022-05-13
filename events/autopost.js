@@ -9,6 +9,7 @@ var moment = require("moment");
 var momentDurationFormatSetup = require("moment-duration-format");
 const date = require('date-and-time');
 const autopost = require('../config/autopost.json');
+const colors = require('../config/config.json');
 
 module.exports = {
     name: 'ready',
@@ -70,7 +71,7 @@ module.exports = {
             footerDate = cdate.split('-').join('/');
 
             const comicEmbed = new MessageEmbed()
-                .setColor('#50C878')
+                .setColor(colors.colors.main)
                 .setTitle(`Today's Garfield Comic!`)
                 .setImage(comic.uri.href)
                 .setFooter({ text: `Comic from: ${footerDate}` })
