@@ -13,7 +13,8 @@ Invite the bot [here](https://discord.com/api/oauth2/authorize?client_id=9714614
 ### Prefix commands:
 | Command  | Description |
 | --- | --- |
-| g!comic  | Sends a random Garfield Comic  |
+| g!garfield  | Sends a random Garfield Comic  |
+| g!dilbert | Sends a random Dilbert comic |
 | g!ping  | Displays latency  |
 | g!credits | Shows bot credits |
 | g!checkperms | Check if the bot has the correct permissions |
