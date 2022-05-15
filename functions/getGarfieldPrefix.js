@@ -13,7 +13,9 @@ module.exports = {
 
         let cdate;
         cdate = moment().subtract(Math.floor(Math.random() * (moment().diff(moment('1978-06-19', 'YYYY-MM-DD')) / 86400000)), 'days').format('YYYY-MM-DD');
-        cdate = moment(cdate).add(1, 'months').format('YYYY-MM-DD');
+        if (cdate.split('-')[1] === '0' || cdate.split('-')[1] === '00') {
+            cdate = cdate.split('-')[0] + '-01-' + cdate.split('-')[2];
+        }
         cdate = date.transform(cdate, 'YYYY-MM-DD', 'YYYY-M-D');
         console.log(`Is valid: ${date.isValid(cdate, 'YYYY-M-D')}`);
 
@@ -21,7 +23,7 @@ module.exports = {
         const format = 'YYYY-M-D';
         for (let i = 0; i < 3; i++) {
             if (checkDate.checkDate(cdate, format) === false) {
-                console.log("Error, comic not found. Retrying...");
+                console.log(`Error, comic not found (${cdate}). Retrying...`);
                 return this.getComic();
             }
         }
@@ -31,18 +33,25 @@ module.exports = {
             return this.getComic();
         }
 
+        if (cdate.split('-')[1] === '0' || cdate.split('-')[1] === '00') {
+            cdate = cdate.split('-')[0] + '-1-' + cdate.split('-')[2];
+        }
+
+        let comicFetchDate = cdate.split('-')[0] + '-' + (parseInt(cdate.split('-')[1]) + 1) + '-' + (parseInt(cdate.split('-')[2]) + 1);
+        comicFetchDate = date.transform(comicFetchDate, 'YYYY-M-D', 'YYYY-MM-DD');
+
         const comic = await getImage({
             comicName: "garfield",
             comicNumber: Math.floor(Math.random() * 100),
             comicFormat: "png",
-            date: [cdate],
+            date: [comicFetchDate],
         }).catch(err => {
             console.log("Error, comic not found. Retrying...");
             return this.getComic();
         });
 
         let footerDate;
-        footerDate = moment(cdate, 'YYYY-M-D').subtract(1, 'months').format('YYYY-MM-DD');
+        footerDate = moment(cdate, 'YYYY-M-D').format('YYYY-MM-DD');
         footerDate = footerDate.split('-').join('/');
 
         const comicEmbed = new MessageEmbed()

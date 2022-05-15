@@ -7,12 +7,12 @@ const { getImage } = require("gocomics-api");
 var moment = require("moment");
 var momentDurationFormatSetup = require("moment-duration-format");
 const date = require('date-and-time');
-const getComic = require('../../../functions/getComicPrefix');
+const getComic = require('../../../functions/getGarfieldPrefix');
 const colors = require('../../../config/config.json');
 
 module.exports = {
-    name: 'comic',
-    description: "Send a comic!",
+    name: 'garfield',
+    description: "Send a Garfield comic!",
 
     async execute(message, args, client) {
         return getComic.getComic(client, message);

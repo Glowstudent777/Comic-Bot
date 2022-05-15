@@ -9,7 +9,7 @@ module.exports = {
         .setDescription('Displays latency and API ping'),
     async execute(interaction, client) {
         const ping = new MessageEmbed()
-            .setColor(colors.colors.main)
+            .setColor(colors.colors.info)
             .setTitle('Pong!')
             .setDescription(`${interaction.user.username}'s ping is ${Date.now() - interaction.createdTimestamp}ms`)
             .setTimestamp();

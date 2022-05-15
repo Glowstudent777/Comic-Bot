@@ -9,7 +9,7 @@ module.exports = {
     async execute(message, args, client) {
 
         const ping = new MessageEmbed()
-            .setColor(colors.colors.main)
+            .setColor(colors.colors.info)
             .setTitle('Pong!')
             .setDescription(`${message.author.username}'s ping is ${Date.now() - message.createdTimestamp}ms`)
             .setTimestamp();

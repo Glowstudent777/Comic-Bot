@@ -1,21 +1,20 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
 const fs = require('fs');
 const { Client, Collection, Intents } = require('discord.js');
 const dotenv = require('dotenv');
 require('dotenv').config();
 const { MessageEmbed } = require('discord.js');
 const { getImage } = require("gocomics-api");
-// const moment = require('moment');
 var moment = require("moment");
 var momentDurationFormatSetup = require("moment-duration-format");
 const date = require('date-and-time');
-const getComic = require('../../../functions/getComicInteraction');
+const getComic = require('../../../functions/getDilbertPrefix');
+const colors = require('../../../config/config.json');
 
 module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('comic')
-        .setDescription('Sends a comic!'),
-    execute(interaction, client) {
-        return getComic.getComic(client, interaction);
+    name: 'dilbert',
+    description: "Send a Dilbert comic!",
+
+    async execute(message, args, client) {
+        return getComic.getComic(client, message);
     },
 };

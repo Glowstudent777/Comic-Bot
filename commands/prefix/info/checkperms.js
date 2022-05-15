@@ -8,7 +8,7 @@ module.exports = {
 	async execute(message) {
 
 		const perms = new MessageEmbed()
-			.setColor(colors.colors.main)
+			.setColor(colors.colors.info)
 			.setDescription(`🔒 I have the following permissions: \n
             ${('[Manage Messages] ')}${(message.guild.me.permissions.has('MANAGE_MESSAGES') ? '✅' : '❌')}
             ${('[Send Messages] ')}${(message.guild.me.permissions.has('SEND_MESSAGES') ? '✅' : '❌')}
