@@ -11,6 +11,8 @@ const r = require("request");
 module.exports = {
     async getComic(sendChannel, ping, message, client) {
 
+        if (sendChannel === undefined) return message.channel.send('There is no configured channel to send the comic to.');
+
         var archive = 'https://gocomics.com/garfield/';
         var today = new Date();
         var todayYear = today.getFullYear();

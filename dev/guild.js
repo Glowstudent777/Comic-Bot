@@ -6,6 +6,7 @@ var moment = require("moment");
 var momentDurationFormatSetup = require("moment-duration-format");
 const date = require('date-and-time');
 const resendComic = require('../functions/resendComic');
+const { watchFile } = require('fs');
 
 module.exports = {
     name: 'guild',
@@ -62,7 +63,7 @@ module.exports = {
         message.channel.send({ embeds: [embed], components: [baseButtons] });
 
         const filter = i => i.user.id === message.author.id;
-        const collector = message.channel.createMessageComponentCollector({ filter });
+        const collector = message.channel.createMessageComponentCollector({ filter, time: 60000 });
 
         const gInfo = new MessageEmbed()
             .setColor('BLUE')
@@ -80,8 +81,11 @@ module.exports = {
 
         collector.on('collect', async i => {
 
+            let state;
+
             if (i.customId === 'guild-info') {
                 await i.update({ embeds: [gInfo], components: [infoButtons] });
+                state = 'info';
             }
             if (i.customId === 'resend') {
                 let sendChannel;
@@ -98,9 +102,11 @@ module.exports = {
 
                 await i.update({ embeds: [resendEmbed], components: [] });
                 resendComic.getComic(sendChannel, ping, message, client);
+                collector.stop();
             }
             if (i.customId === 'back') {
                 await i.update({ embeds: [embed], components: [baseButtons] });
+                state = 'base';
             }
         });
 
