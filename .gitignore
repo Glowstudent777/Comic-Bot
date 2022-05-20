@@ -2,7 +2,6 @@ node_modules/
 .git/
 .env
 dev/eval.js
-events/devCommandHandler.js
-deploy-commands.js
+dev/autosend.js
 deploy-commands-global.js
 .vscode/
