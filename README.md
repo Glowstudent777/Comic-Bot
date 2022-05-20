@@ -1,5 +1,5 @@
-# Gar-Bot
-Gar-Bot is a Discord bot developed for sending Garfield comics in servers.
+# Comic Bot
+Comic-Bot is a Discord bot developed for sending comics in servers.
 
 Invite the bot [here](https://discord.com/api/oauth2/authorize?client_id=971461458854572062&permissions=139586825280&scope=bot%20applications.commands)
   
@@ -13,15 +13,14 @@ Invite the bot [here](https://discord.com/api/oauth2/authorize?client_id=9714614
 ### Prefix commands:
 | Command  | Description |
 | --- | --- |
-| g!garfield  | Sends a random Garfield Comic  |
-| g!dilbert | Sends a random Dilbert comic |
-| g!ping  | Displays latency  |
-| g!credits | Shows bot credits |
-| g!checkperms | Check if the bot has the correct permissions |
+| c!garfield  | Sends a random Garfield Comic  |
+| c!dilbert | Sends a random Dilbert comic |
+| c!ping  | Displays latency  |
+| c!credits | Shows bot credits |
+| c!checkperms | Check if the bot has the correct permissions |
 
-## Features:
-### Autoposting: 
-Gar-Bot will post the daily comic in a specified channel around 12pm CST everyday. (not accessible unless self hosted and configured)
-
-### Garfield comics on demand:
-Using the `/comic` or `g!comic` command will send a random Garfield comic. The comics may be as old as 1978!
+### Dev commands:
+| Command  | Description |
+| --- | --- |
+| c!resend [guild id]  | Resends the daily comic to the server  |
+| c!guild [guild id] | Information about the guild and can resend comics  |
