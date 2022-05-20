@@ -19,6 +19,12 @@ Invite the bot [here](https://discord.com/api/oauth2/authorize?client_id=9714614
 | g!credits | Shows bot credits |
 | g!checkperms | Check if the bot has the correct permissions |
 
+### Dev commands:
+| Command  | Description |
+| --- | --- |
+| g!resend [guild id]  | Resends the daily comic to the server  |
+| g!guild [guild id] | Information about the guild and can resend comics  |
+
 ## Features:
 ### Autoposting: 
 Gar-Bot will post the daily comic in a specified channel around 12pm CST everyday. (not accessible unless self hosted and configured)
