@@ -7,7 +7,8 @@ Invite the bot [here](https://discord.com/api/oauth2/authorize?client_id=9714614
 ### Interaction commands:
 | Command  | Description |
 | --- | --- |
-| /comic  | Sends a random Garfield Comic  |
+| /garfield  | Sends a random Garfield Comic  |
+| /dilbert | Sends a random Dilbert comic |
 | /ping  | Displays latency  |
 
 ### Prefix commands:
