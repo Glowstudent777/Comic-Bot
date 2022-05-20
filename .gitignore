@@ -5,6 +5,6 @@ dev/eval.js
 dev/autosend.js
 deploy-commands-global.js
 .vscode/
-.gitignore
 config/autopost.json
 config/config.json
+package-lock.json
