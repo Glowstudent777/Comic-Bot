@@ -16,7 +16,8 @@ module.exports = {
         var todayYear = today.getFullYear();
         var todayMonth = today.getMonth();
         var todayDay = today.getDate();
-        var url = archive + todayYear + '/' + todayMonth + '/' + todayDay;
+        var formattedToday = moment(today).format("YYYY/MM/DD");
+        var url = archive + formattedToday;
 
         const parsedPage = parse(await rp(url)
             .catch(err => {
@@ -27,7 +28,7 @@ module.exports = {
 
         const embed = new MessageEmbed()
             .setColor(colors.colors.main)
-            .setTitle('Garfield')
+            .setTitle('Daily Garfield Comic')
             .setURL(url)
             .setImage(imageURL)
             .setFooter({ text: 'Powered by GoComics.com' })
