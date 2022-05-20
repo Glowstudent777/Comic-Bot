@@ -11,6 +11,6 @@ module.exports = {
         console.log(`Bot is Ready! Logged in as ${client.user.tag}!`);
 
         // Activity
-        client.user.setActivity(`With Comics`, { type: 'PLAYING' });
+        client.user.setActivity(`Comic-Con`, { type: 'COMPETING' });
     },
 };
