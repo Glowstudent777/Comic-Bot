@@ -79,6 +79,7 @@ module.exports = {
             .setDescription(`Sending comic to ${guild.name}`);
 
         collector.on('collect', async i => {
+
             if (i.customId === 'guild-info') {
                 await i.update({ embeds: [gInfo], components: [infoButtons] });
             }
