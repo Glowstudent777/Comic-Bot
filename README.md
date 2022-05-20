@@ -25,3 +25,15 @@ Invite the bot [here](https://discord.com/api/oauth2/authorize?client_id=9714614
 | --- | --- |
 | c!resend [guild id]  | Resends the daily comic to the server  |
 | c!guild [guild id] | Information about the guild and can resend comics  |
+
+## Setup:
+Clone repository using the command below
+```
+git clone https://github.com/Glowstudent777/Comic-Bot.git
+```
+
+Rename `.env.example` to `.env` and fill in the token
+
+In the `config` folder `config.example` and `autopost.example` should be renamed to `config.json` and `autopost.json` respectively. Then fill in the information in each file.
+
+To start the bot use `node main.js`
