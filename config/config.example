@@ -1,8 +1,8 @@
 {
     "prefix": "c!",
 
-    "devGuild": "784111101923033108",
-    "clientId": "971461458854572062",
+    "devGuild": "",
+    "clientId": "",
 
     "colors": {
         "main": "#e67e22",

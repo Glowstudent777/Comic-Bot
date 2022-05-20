@@ -1,7 +1,7 @@
 {
-  "name": "dailygarfield",
+  "name": "comic-bot",
   "version": "1.0.0",
-  "description": "Simple Truth or Dare Discord bot.",
+  "description": "Simple bot to send comics",
   "main": "main.js",
   "dependencies": {
     "@discordjs/builders": "^0.13.0",
@@ -89,14 +89,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Glowstudent777/DailyGarfield.git"
+    "url": "git+https://github.com/Glowstudent777/Comic-Bot.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Glowstudent777/DailyGarfield/issues"
+    "url": "https://github.com/Glowstudent777/Comic-Bot/issues"
   },
-  "homepage": "https://github.com/Glowstudent777/DailyGarfield#readme",
+  "homepage": "https://github.com/Glowstudent777/Comic-Bot#readme",
   "devDependencies": {
     "eslint": "^8.15.0",
     "eslint-plugin-promise": "^6.0.0"
