@@ -5,7 +5,6 @@ const { parse } = require("node-html-parser");
 const rp = require("request-promise-native");
 const r = require("request");
 const { MessageEmbed } = require('discord.js');
-const colors = require('../config/config.json');
 
 module.exports = {
 

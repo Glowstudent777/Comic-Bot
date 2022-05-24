@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const moment = require('moment');
-const colors = require('../../../config/config.json');
+const config = require('../../../config/config.js');
 
 module.exports = {
     name: 'ping',
@@ -9,7 +9,7 @@ module.exports = {
     async execute(message, args, client) {
 
         const ping = new MessageEmbed()
-            .setColor(colors.colors.info)
+            .setColor(config.colors.info)
             .setTitle('Pong!')
             .setDescription(`${message.author.username}'s ping is ${Date.now() - message.createdTimestamp}ms`)
             .setTimestamp();

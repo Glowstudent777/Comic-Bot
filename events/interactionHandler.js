@@ -1,6 +1,6 @@
 const { Client, Collection, Intents } = require('discord.js');
 const dotenv = require('dotenv');
-const config = require('../config/config.json');
+const config = require('../config/config.js');
 
 module.exports = {
     name: 'interactionCreate', // Name of the event

@@ -1,5 +1,5 @@
 const channels = require('../config/autopost.json');
-const { prefix } = require('../config/config.json');
+const { prefix } = require('../config/config.js');
 const { MessageEmbed } = require('discord.js');
 const { getImage } = require("gocomics-api");
 var moment = require("moment");

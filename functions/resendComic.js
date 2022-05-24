@@ -3,7 +3,7 @@ var moment = require("moment");
 var momentDurationFormatSetup = require("moment-duration-format");
 const date = require('date-and-time');
 const autopost = require('../config/autopost.json');
-const colors = require('../config/config.json');
+const config = require('../config/config.js');
 const { parse } = require("node-html-parser");
 const rp = require("request-promise-native");
 const r = require("request");
@@ -29,7 +29,7 @@ module.exports = {
         const imageURL = parsedPage.querySelector(".item-comic-image img").rawAttrs.split(/ src=/)[1].replace(/"/g, "");
 
         const embed = new MessageEmbed()
-            .setColor(colors.colors.main)
+            .setColor(config.colors.main)
             .setTitle('Daily Garfield Comic')
             .setURL(url)
             .setImage(imageURL)

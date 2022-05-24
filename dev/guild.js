@@ -1,5 +1,5 @@
 const channels = require('../config/autopost.json');
-const { prefix } = require('../config/config.json');
+const config = require('../config/config.js');
 const { MessageEmbed } = require('discord.js');
 const { MessageActionRow, MessageButton } = require('discord.js');
 var moment = require("moment");
@@ -20,7 +20,7 @@ module.exports = {
         const args = message.content.trim().split(/ +/g);
         args.shift();
 
-        if (args.length < this.minargs || args.length > this.maxargs) return message.reply(`Invalid number of arguments. Usage: \`${prefix}${this.usage}\``);
+        if (args.length < this.minargs || args.length > this.maxargs) return message.reply(`Invalid number of arguments. Usage: \`${config.prefix}${this.usage}\``);
         if (!args[0]) return message.channel.send(`You need to provide a guild id.`);
 
         const guildArg = args[0];

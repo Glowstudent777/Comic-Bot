@@ -1,10 +1,10 @@
-const config = require('../config/config.json');
+const config = require('../config/config.js');
 
 module.exports = {
     name: 'messageCreate', // Name of the event
     async execute(client, message) {
 
-        const { prefix } = require('../config/config.json');
+        const { prefix } = require('../config/config.js');
 
         if (!message.content.startsWith(prefix) || message.author.bot) return;
         if (message.channel.type === 'dm') return;

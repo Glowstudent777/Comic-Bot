@@ -2,7 +2,7 @@ var moment = require("moment");
 var momentDurationFormatSetup = require("moment-duration-format");
 const date = require('date-and-time');
 const getComic = require('../../../functions/getComicPrefix');
-const colors = require('../../../config/config.json');
+const config = require('../../../config/config.js');
 
 module.exports = {
     name: 'garfield',
@@ -15,7 +15,7 @@ module.exports = {
         const firstComicDay = 19;
         const firstComicMonth = 6;
         const embedTitle = "Garfield";
-        const embedColor = colors.colors.main;
+        const embedColor = config.colors.main;
 
         return getComic.getComic(client, message, comicName, comicYear, firstComicDay, firstComicMonth, embedTitle, embedColor);
     },

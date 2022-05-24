@@ -34,6 +34,6 @@ git clone https://github.com/Glowstudent777/Comic-Bot.git
 
 Rename `.env.example` to `.env` and fill in the token
 
-In the `config` folder `config.example` and `autopost.example` should be renamed to `config.json` and `autopost.json` respectively. Then fill in the information in each file.
+In the `config` folder `autopost.example` should be renamed to `autopost.json`. Open up both `config.js` and `autopost.json` and fill in the information.
 
 To start the bot use `node main.js`

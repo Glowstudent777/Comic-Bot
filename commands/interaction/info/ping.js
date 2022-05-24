@@ -1,7 +1,7 @@
 const {SlashCommandBuilder} = require('@discordjs/builders');
 const {MessageEmbed} = require('discord.js');
 const moment = require('moment');
-const colors = require('../../../config/config.json');
+const config = require('../../../config/config.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -9,7 +9,7 @@ module.exports = {
         .setDescription('Displays latency and API ping'),
     async execute(interaction, client) {
         const ping = new MessageEmbed()
-            .setColor(colors.colors.info)
+            .setColor(config.colors.info)
             .setTitle('Pong!')
             .setDescription(`${interaction.user.username}'s ping is ${Date.now() - interaction.createdTimestamp}ms`)
             .setTimestamp();
