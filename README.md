@@ -32,9 +32,16 @@ Clone repository using the command below
 git clone https://github.com/Glowstudent777/Comic-Bot.git
 ```
 
+Install dependencies using
+```
+npm install
+```
+
+### Secrets and config
+
 Rename `.env.example` to `.env` and fill in the token
 
-In the `config` folder `autopost.example` should be renamed to `autopost.json`. Open up both `config.js` and `autopost.json` and fill in the information.
+In the `config` folder rename `autopost.example` to `autopost.json`. Then open up both `config.js` and `autopost.json` and fill in and edit the information.
 
 To start the bot use `node main.js` or `npm start`
 
