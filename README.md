@@ -38,5 +38,7 @@ In the `config` folder `autopost.example` should be renamed to `autopost.json`. 
 
 To start the bot use `node main.js` or `npm start`
 
+---
+
 ### <img src="https://discord.com/assets/3437c10597c1526c3dbd98c737c2bcae.svg" width="20" height="20"/> &nbsp;Join my Discord :
 [![Join the Cardboard Box](https://inv.wtf/widget/glow)](https://inv.wtf/glow)
