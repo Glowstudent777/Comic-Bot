@@ -69,22 +69,6 @@ for (const file of eventFiles) {
 	}
 }
 
-const Sentry = require("@sentry/node");
-const Tracing = require("@sentry/tracing");
-
-Sentry.init({
-	dsn: "https://5c2f100f28db43aea5d7e11d41c55223@o1186944.ingest.sentry.io/6316176",
-	tracesSampleRate: 1.0,
-});
-
-const transaction = Sentry.startTransaction({
-	op: "Starting bot",
-	name: "Bot",
-	description: "Starting bot",
-});
-
-transaction.finish();
-
 // error handling
 client.on('shardError', error => {
 	console.error('A websocket connection encountered an error:', error);

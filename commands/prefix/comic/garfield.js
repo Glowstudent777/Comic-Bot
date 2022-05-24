@@ -1,13 +1,7 @@
-const fs = require('fs');
-const { Client, Collection, Intents } = require('discord.js');
-const dotenv = require('dotenv');
-require('dotenv').config();
-const { MessageEmbed } = require('discord.js');
-const { getImage } = require("gocomics-api");
 var moment = require("moment");
 var momentDurationFormatSetup = require("moment-duration-format");
 const date = require('date-and-time');
-const getComic = require('../../../functions/getGarfieldPrefix');
+const getComic = require('../../../functions/getComicPrefix');
 const colors = require('../../../config/config.json');
 
 module.exports = {
@@ -15,6 +9,14 @@ module.exports = {
     description: "Send a Garfield comic!",
 
     async execute(message, args, client) {
-        return getComic.getComic(client, message);
+        
+        const comicName = "garfield";
+        const comicYear = 1978;
+        const firstComicDay = 19;
+        const firstComicMonth = 6;
+        const embedTitle = "Garfield";
+        const embedColor = colors.colors.main;
+
+        return getComic.getComic(client, message, comicName, comicYear, firstComicDay, firstComicMonth, embedTitle, embedColor);
     },
 };

@@ -1,13 +1,7 @@
-const fs = require('fs');
-const { Client, Collection, Intents } = require('discord.js');
-const dotenv = require('dotenv');
-require('dotenv').config();
-const { MessageEmbed } = require('discord.js');
-const { getImage } = require("gocomics-api");
 var moment = require("moment");
 var momentDurationFormatSetup = require("moment-duration-format");
 const date = require('date-and-time');
-const getComic = require('../../../functions/getDilbertPrefix');
+const getComic = require('../../../functions/getComicPrefix');
 const colors = require('../../../config/config.json');
 
 module.exports = {
@@ -15,6 +9,14 @@ module.exports = {
     description: "Send a Dilbert comic!",
 
     async execute(message, args, client) {
-        return getComic.getComic(client, message);
+        const comicName = "dilbert-classics";
+
+        const comicYear = 2012;
+        const firstComicDay = 13;
+        const firstComicMonth = 6;
+        const embedTitle = "Dilbert";
+        const embedColor = colors.colors.secondary;
+
+        return getComic.getComic(client, message, comicName, comicYear, firstComicDay, firstComicMonth, embedTitle, embedColor);
     },
 };

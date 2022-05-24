@@ -9,11 +9,14 @@ const colors = require('../config/config.json');
 
 module.exports = {
 
-    async getComic(client, interaction) {
+    async getComic(client, message, comicName, comicYear, firstComicDay, firstComicMonth, embedTitle, embedColor) {
 
-        var archive = 'https://gocomics.com/garfield/';
+        var archive = `https://gocomics.com/${comicName}/`;
         var today = new Date();
         var todayYear = today.getFullYear();
+
+        var firstDay = firstComicDay;
+        var firstMonth = firstComicMonth;
 
         var month = Math.floor(Math.random() * 12) + 1;
         let day;
@@ -27,9 +30,20 @@ module.exports = {
             month === 10 || month === 12) {
             day = Math.floor(Math.random() * 31) + 1;
         }
-        var randomYear = Math.floor(Math.random() * (todayYear - 1978) + 1978);
+
+        var randomYear = Math.floor(Math.random() * (todayYear - comicYear) + comicYear);
         var randomizedMonth = (month < 9 ? '0' : '') + month;
         var randomizedDay = (day < 9 ? '0' : '') + day;
+
+        if (randomYear === comicYear) {
+            if (month === firstMonth) {
+                if (day < firstDay) {
+                    console.log("Day is less than first day");
+                    randomizedDay = firstDay;
+                }
+            }
+        }
+
         var url = archive + randomYear + '/' + randomizedMonth + '/' + randomizedDay;
 
         const parsedPage = parse(await rp(url)
@@ -37,16 +51,23 @@ module.exports = {
                 console.log("Request failed\n", err);
             }));
 
-        const imageURL = parsedPage.querySelector(".item-comic-image img").rawAttrs.split(/ src=/)[1].replace(/"/g, "");
+        let imageURL = parsedPage.querySelector(".item-comic-image img");
+
+        if (imageURL === null) {
+            console.log("No image found");
+            return this.getComic(client, message, comicName, comicYear, firstComicDay, firstComicMonth, embedTitle, embedColor);
+        }
+
+        imageURL = imageURL.rawAttrs.split(/ src=/)[1].replace(/"/g, "");
 
         const embed = new MessageEmbed()
-            .setColor(colors.colors.main)
-            .setTitle('Garfield')
+            .setColor(embedColor)
+            .setTitle(`${embedTitle}`)
             .setURL(url)
             .setImage(imageURL)
             .setFooter({ text: 'Powered by GoComics.com' })
             .setTimestamp();
-        interaction.reply({ embeds: [embed] });
+        message.reply({ embeds: [embed] });
 
     },
 };
