@@ -36,4 +36,4 @@ Rename `.env.example` to `.env` and fill in the token
 
 In the `config` folder `autopost.example` should be renamed to `autopost.json`. Open up both `config.js` and `autopost.json` and fill in the information.
 
-To start the bot use `node main.js`
+To start the bot use `node main.js` or `npm start`
