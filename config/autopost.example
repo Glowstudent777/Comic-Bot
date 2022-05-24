@@ -4,6 +4,11 @@
             "_Guild": "Guild name",
             "id": "Guild ID",
             "ping": "[optional] role id to ping (leave blank to not ping)"
+        },
+        {
+            "_Guild": "Guild name",
+            "id": "Guild ID",
+            "ping": "[optional] role id to ping (leave blank to not ping)"
         }
     ]
 }

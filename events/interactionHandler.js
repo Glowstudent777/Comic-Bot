@@ -1,5 +1,6 @@
 const { Client, Collection, Intents } = require('discord.js');
 const dotenv = require('dotenv');
+const config = require('../config/config.json');
 
 module.exports = {
     name: 'interactionCreate', // Name of the event
@@ -8,7 +9,7 @@ module.exports = {
         const command = client.commands.get(interaction.commandName);
         if (!command) return;
 
-        console.log(`[${interaction.commandName}] ${interaction.user.tag} (${interaction.user.id})`);
+        if (config.commandLogging === true) console.log(`[${interaction.commandName}] ${interaction.user.tag} (${interaction.user.id})`);
 
         // execute commands
         try {

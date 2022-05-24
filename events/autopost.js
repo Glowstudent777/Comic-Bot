@@ -3,6 +3,7 @@ var moment = require("moment");
 var momentDurationFormatSetup = require("moment-duration-format");
 const date = require('date-and-time');
 const autopost = require('../config/autopost.json');
+const config = require('../config/config.json');
 const colors = require('../config/config.json');
 const { parse } = require("node-html-parser");
 const rp = require("request-promise-native");
@@ -82,7 +83,7 @@ module.exports = {
             if (timeTillPost < 0) timeTillPost = postTime.add(1, 'days').diff(moment());
             const timeTillPostFormatted = moment.duration(timeTillPost).format("h [hours], m [minutes], s [seconds]");
 
-            console.log(`Not time to post yet. Posting in: ${timeTillPostFormatted} (${postTime.format('HH:mm:ss')})`);
+            if (config.autopostLogging === true) console.log(`Not time to post yet. Posting in: ${timeTillPostFormatted} (${postTime.format('HH:mm:ss')})`);
 
         }, 5000);
 

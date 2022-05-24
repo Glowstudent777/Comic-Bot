@@ -4,6 +4,9 @@
     "devGuild": "",
     "clientId": "",
 
+    "autopostLogging": true,
+    "commandLogging": true,
+
     "colors": {
         "main": "#e67e22",
         "secondary": "#f4511e",

@@ -1,3 +1,5 @@
+const config = require('../config/config.json');
+
 module.exports = {
     name: 'messageCreate', // Name of the event
     async execute(client, message) {
@@ -11,7 +13,7 @@ module.exports = {
         const commandName = args.shift().toLowerCase();
         const command = client.pcommands.get(commandName) || client.pcommands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
-        console.log(`[${commandName}] ${message.author.tag} (${message.author.id})`);
+        if (config.commandLogging === true) console.log(`[${commandName}] ${message.author.tag} (${message.author.id})`);
 
         try {
             command.execute(message, args, client);
