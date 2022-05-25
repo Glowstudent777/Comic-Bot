@@ -2,6 +2,8 @@
 Comic-Bot is a Discord bot developed for sending comics in servers.
 
 Invite the bot [here](https://discord.com/api/oauth2/authorize?client_id=971461458854572062&permissions=139586825280&scope=bot%20applications.commands)
+
+⚠ **Warning: This is currently in development, expect bugs**
   
 ## Commands:
 ### Interaction commands:
