@@ -13,10 +13,9 @@ module.exports = {
         const commandName = args.shift().toLowerCase();
         const command = client.pcommands.get(commandName) || client.pcommands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
-        if (config.commandLogging === true) console.log(`[${commandName}] ${message.author.tag} (${message.author.id})`);
-
         try {
             command.execute(message, args, client);
+            if (config.commandLogging === true) console.log(`[${commandName}] ${message.author.tag} (${message.author.id})`);
         }
         catch (error) {
             // ...

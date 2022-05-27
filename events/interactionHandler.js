@@ -9,11 +9,10 @@ module.exports = {
         const command = client.commands.get(interaction.commandName);
         if (!command) return;
 
-        if (config.commandLogging === true) console.log(`[${interaction.commandName}] ${interaction.user.tag} (${interaction.user.id})`);
-
         // execute commands
         try {
             await command.execute(interaction, client);
+            if (config.commandLogging === true) console.log(`[${interaction.commandName}] ${interaction.user.tag} (${interaction.user.id})`);
         }
         catch (error) {
             console.error(error);
