@@ -34,14 +34,9 @@ module.exports = {
         var randomizedMonth = (month < 9 ? '0' : '') + month;
         var randomizedDay = (day < 9 ? '0' : '') + day;
 
-        if (randomYear === comicYear) {
-            if (month === firstMonth) {
-                if (day < firstDay) {
-                    console.log("Day is less than first day");
-                    randomizedDay = firstDay;
-                }
-            }
-        }
+        if (randomYear < comicYear) randomYear = comicYear;
+        if (randomizedMonth < firstMonth) randomizedMonth = firstMonth;
+        if (randomizedDay < firstDay) randomizedDay = firstDay;
 
         var url = archive + randomYear + '/' + randomizedMonth + '/' + randomizedDay;
 

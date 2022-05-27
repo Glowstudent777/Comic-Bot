@@ -10,6 +10,8 @@ module.exports = {
 
     async getComic(client, interaction, comicName, comicYear, firstComicDay, firstComicMonth, embedTitle, embedColor) {
 
+        interaction.deferReply();
+
         var archive = `https://gocomics.com/${comicName}/`;
         var today = new Date();
         var todayYear = today.getFullYear();
@@ -34,14 +36,9 @@ module.exports = {
         var randomizedMonth = (month < 9 ? '0' : '') + month;
         var randomizedDay = (day < 9 ? '0' : '') + day;
 
-        if (randomYear === comicYear) {
-            if (month === firstMonth) {
-                if (day < firstDay) {
-                    console.log("Day is less than first day");
-                    randomizedDay = firstDay;
-                }
-            }
-        }
+        if (randomYear < comicYear) randomYear = comicYear;
+        if (randomizedMonth < firstMonth) randomizedMonth = firstMonth;
+        if (randomizedDay < firstDay) randomizedDay = firstDay;
 
         var url = archive + randomYear + '/' + randomizedMonth + '/' + randomizedDay;
 
@@ -66,7 +63,7 @@ module.exports = {
             .setImage(imageURL)
             .setFooter({ text: 'Powered by GoComics.com' })
             .setTimestamp();
-        interaction.reply({ embeds: [embed] });
+        interaction.editReply({ embeds: [embed] });
 
     },
 };
