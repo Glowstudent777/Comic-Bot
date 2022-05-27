@@ -2,6 +2,8 @@
 Comic-Bot is a Discord bot developed for sending comics in servers.
 
 Invite the bot [here](https://discord.com/api/oauth2/authorize?client_id=971461458854572062&permissions=139586825280&scope=bot%20applications.commands)
+
+⚠ **Warning: This is currently in development, expect bugs**
   
 ## Commands:
 ### Interaction commands:
@@ -32,8 +34,20 @@ Clone repository using the command below
 git clone https://github.com/Glowstudent777/Comic-Bot.git
 ```
 
+Install dependencies using
+```
+npm install
+```
+
+### Secrets and config
+
 Rename `.env.example` to `.env` and fill in the token
 
-In the `config` folder `autopost.example` should be renamed to `autopost.json`. Open up both `config.js` and `autopost.json` and fill in the information.
+In the `config` folder rename `autopost.example` to `autopost.json`. Then open up both `config.js` and `autopost.json` and fill in and edit the information.
 
-To start the bot use `node main.js`
+To start the bot use `node main.js` or `npm start`
+
+---
+
+### <img src="https://discord.com/assets/3437c10597c1526c3dbd98c737c2bcae.svg" width="20" height="20"/> &nbsp;Join my Discord :
+[![Join the Cardboard Box](https://inv.wtf/widget/glow)](https://inv.wtf/glow)
