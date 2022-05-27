@@ -12,12 +12,15 @@ module.exports = {
             .setColor(config.colors.info)
             .setTitle('**Credits**')
             .setAuthor({ iconURL: client.user.avatarURL(), name: client.user.username })
-            .setDescription("For support join the Discord server [here](https://discord.gg/4wM63P7ZUd)")
             .setFields(
                 {
                     name: `Developer`,
                     value: `Glowstudent#1229`
-                },)
+                },
+                {
+                    name: `Support`,
+                    value: `For support join the Discord server [here](${config.supportServer || "https://discord.gg/4wM63P7ZUd"})`
+                })
             .setFooter({ text: `Thanks to everyone for making this possible!` });
         message.channel.send({ embeds: [credits] });
     },

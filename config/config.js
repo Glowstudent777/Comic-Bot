@@ -3,7 +3,7 @@ var config = {};
 config.developers = ["557691883518951435"];
 config.admins = ["557691883518951435"];
 
-config.supportServer = "";
+config.supportServer = "https://discord.gg/4wM63P7ZUd";
 
 config.prefix = "c!";
 
