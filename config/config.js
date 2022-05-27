@@ -12,6 +12,7 @@ config.clientId = "971461458854572062";
 
 config.autopostLogging = false;
 config.commandLogging = true;
+config.commandLoadLogging = false;
 
 config.colors = {
     main: "#e67e22",

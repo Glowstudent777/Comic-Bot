@@ -5,6 +5,8 @@ const fs = require('fs');
 const { Client, Collection, Intents } = require('discord.js');
 const dotenv = require('dotenv');
 require('dotenv').config();
+const { REST } = require("@discordjs/rest");
+const { Routes } = require("discord-api-types/v9");
 
 // Intents
 const client = new Client({
@@ -64,7 +66,7 @@ for (const file of eventFiles) {
 	if (event.once) {
 		client.once(event.name, (...args) => event.execute(client, ...args));
 	}
- else {
+	else {
 		client.on(event.name, (...args) => event.execute(client, ...args));
 	}
 }

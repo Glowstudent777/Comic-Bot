@@ -37,6 +37,7 @@
     "forwarded": "^0.2.0",
     "fresh": "^0.5.2",
     "fs": "^0.0.1-security",
+    "fs.promises": "^0.1.2",
     "gocomics-api": "^1.1.1",
     "http-errors": "^1.8.1",
     "https-proxy-agent": "^5.0.0",
