@@ -11,7 +11,7 @@ module.exports = {
         const ping = new MessageEmbed()
             .setColor(config.colors.info)
             .setTitle('Pong!')
-            .setDescription(`${message.author.username}'s ping is ${Date.now() - message.createdTimestamp}ms`)
+            .setDescription(`⌛ ${client.ws.ping}ms`)
             .setTimestamp();
         message.reply({ embeds: [ping] });
     },

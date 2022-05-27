@@ -11,7 +11,7 @@ module.exports = {
         const ping = new MessageEmbed()
             .setColor(config.colors.info)
             .setTitle('Pong!')
-            .setDescription(`${interaction.user.username}'s ping is ${Date.now() - interaction.createdTimestamp}ms`)
+            .setDescription(`⌛ ${client.ws.ping}ms`)
             .setTimestamp();
         return interaction.reply({embeds: [ping]});
     },
