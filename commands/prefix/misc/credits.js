@@ -18,6 +18,10 @@ module.exports = {
                     value: `Glowstudent#1229`
                 },
                 {
+                    name: `Amazing wonderful code review and inspiration throughout all of life`,
+                    value: `TheShadow#8124`
+                },
+                {
                     name: `Support`,
                     value: `For support join the Discord server [here](${config.supportServer || "https://discord.gg/4wM63P7ZUd"})`
                 })
