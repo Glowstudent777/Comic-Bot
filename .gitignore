@@ -6,4 +6,3 @@ dev/autosend.js
 deploy-commands-global.js
 .vscode/
 config/autopost.json
-package-lock.json
