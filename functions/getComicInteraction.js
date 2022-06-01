@@ -5,6 +5,7 @@ const { parse } = require("node-html-parser");
 const rp = require("request-promise-native");
 const r = require("request");
 const { MessageEmbed } = require('discord.js');
+const config = require('../config/config.js');
 
 module.exports = {
 
@@ -41,6 +42,7 @@ module.exports = {
         if (randomizedDay < firstDay) randomizedDay = firstDay;
 
         var url = archive + randomYear + '/' + randomizedMonth + '/' + randomizedDay;
+        if (config.comicUrlLogging === true) console.log(url);
 
         const parsedPage = parse(await rp(url)
             .catch(err => {
